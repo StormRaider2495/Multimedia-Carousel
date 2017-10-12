@@ -1,0 +1,23 @@
+{
+    "instruction": "Multimedia Carousel Player",
+    "repeat": true,
+    "slides": [{
+            "id": "03a",
+            "type": "image",
+            "link": "data/image01.jpg",
+            "caption": "First Slide. Carousel is always so much fun!"
+        },
+        {
+            "id": "03b",
+            "type": "audio",
+            "link": "data/audio01.mp3",
+            "caption": "Second Slide. Thank you, for listening!"
+        },
+        {
+            "id": "03c",
+            "type": "video",
+            "link": "data/video01.mp4",
+            "caption": "Third Slide. Its the video slide!"
+        }
+    ]
+}
