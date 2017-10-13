@@ -29,8 +29,6 @@ export default class Carousel {
                 self.createSlides(resp.slides);
                 self.initializeCarouselLibrary();
                 self.bindEvents();
-
-                // self.resizeImage();
             })
             .catch((err) => {});
     }
@@ -57,10 +55,10 @@ export default class Carousel {
                     slide = '<div class="' + className + '">  <img src="' + multimediaContent[i].link + '" alt=""> <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div></div>';
                     break;
                 case "audio":
-                    slide = '<div class="' + className + '"> <audio controls> <source  src="' + multimediaContent[i].link + '"  type="audio/mpeg">  </audio>  <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div> </div>';
+                    slide = '<div class="' + className + '"> <audio controls> <source src="' + multimediaContent[i].link + '" type="audio/mpeg"> </audio> <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div> </div>';
                     break;
                 case "video":
-                    slide = '<div class="' + className + '"> <video controls preload="metadata"> <source src="' + multimediaContent[i].link + '" type="video/mp4"> </video> <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div> </div>';
+                    slide = '<div class="' + className + '"> <video controls> <source src="' + multimediaContent[i].link + '" type="video/mp4"> </video> <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div> </div>';
                     break;
             }
             this.carouselElem.find(".carousel-inner").append(slide);
