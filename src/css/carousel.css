@@ -36,9 +36,25 @@
     background-color: #fff;
 }
 
-.carousel-caption {
+.carousel-controls {
     background-color: rgba(0, 0, 0, .5);
     position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    /*padding: 0 0 10px 25px;*/
+    /*padding: 0 0 5px 0px;*/
+    color: #fff;
+    text-align: center;
+    height: auto;
+    border-radius: 0 0 15px 15px;
+}
+
+.caption {
+    /*background-color: rgba(0, 0, 0, .5);
+    position: relative;
+    width: 80%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -46,12 +62,17 @@
     padding: 0 0 10px 25px;
     color: #fff;
     text-align: center;
+    bottom: 0;*/
+    position: relative;
+    color: #fff;
+    text-align: center;
+    bottom: 0;
 }
 
-.carousel-caption .caption-text {
+.caption .caption-text {
     display: inline-block;
-    width: 70%;
     word-wrap: break-word;
+    width: 70%;
 }
 
 .carousel-indicators {
@@ -68,9 +89,6 @@
 
 .controls {
     position: absolute;
-    /*top: 0;
-    bottom: 0;
-    left: 0;*/
     width: 15%;
     font-size: 20px;
     color: #fff;
@@ -79,12 +97,14 @@
     background-color: rgba(0, 0, 0, 0);
     filter: alpha(opacity=50);
     opacity: .5;
+    z-index: 1;
 }
 
 .controls.left, .controls.right {
     background-image: none;
     cursor: pointer;
-    bottom: 10px
+    bottom: 10px;
+    border: 0;
 }
 
 .controls.left {
@@ -99,9 +119,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    /*width: 120px;
-    height: 120px;
-    margin: -60px 0 0 -60px;*/
     -webkit-animation: spin 4s linear infinite;
     -moz-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite;
@@ -140,7 +157,7 @@
 
 @media screen and (min-width: 768px) {
     .section-white {
-        padding: 1.5em 0;
+        padding: 0.5em 0;
     }
 }
 
@@ -148,4 +165,9 @@
     .container {
         max-width: 930px;
     }
+}
+
+
+}
+
 }
