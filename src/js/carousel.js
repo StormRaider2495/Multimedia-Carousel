@@ -72,11 +72,11 @@ export default class Carousel {
 
     bindCarouselEvents() {
         let self = this;
-        this.carouselElem.find(".left").on("click", () => {
+        this.carouselElem.find(".left").off('click').on("click", () => {
             self.manageCarousel("prev");
         });
 
-        this.carouselElem.find(".right").on("click", () => {
+        this.carouselElem.find(".right").off('click').on("click", () => {
             self.manageCarousel("next");
         });
 

@@ -11,13 +11,13 @@
             "id": "03b",
             "type": "image",
             "link": "data/image02.jpg",
-            "caption": "Image Slide. Thank you, for listening! Las tomas de posesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012"
-        },{
+            "caption": "Second Image Slide. Thank you, for listening! Las tomas de posesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012"
+        }, {
             "id": "03c",
             "type": "image",
             "link": "data/image03.jpg",
-            "caption": "Image Slide. Thank you, for listening! Las tomas de posesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012"
-        },{
+            "caption": "Third Image Slide. Thank you, for listening! Las tomas de posesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012"
+        }, {
             "id": "03c",
             "type": "audio",
             "link": "data/audio01.mp3",
