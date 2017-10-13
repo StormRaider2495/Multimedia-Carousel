@@ -1,6 +1,7 @@
 import Carousel from './carousel';
 
 $(document).ready(function() {
-    let carousel = new Carousel();
+    let carouselElem = $("#multimedia-carousel");
+    let carousel = new Carousel(carouselElem);
     carousel.startCarousel("data/data.json");
 });

@@ -1,10 +1,11 @@
 import $ from 'jquery'
 export default class Carousel {
 
-    constructor() {
+    constructor(carouselElem) {
         this.currentSlide = 0;
         this.data = {};
         this.repeat;
+        this.carouselElem = carouselElem;
     }
 
     getData(dataUrl) {
@@ -26,8 +27,9 @@ export default class Carousel {
                 self.repeat = resp.repeat;
                 self.showInstruction(resp.instruction);
                 self.createSlides(resp.slides);
-                // self.initializeCarouselLibrary();
-                // self.bindEvents();
+                self.initializeCarouselLibrary();
+                self.bindEvents();
+
                 // self.resizeImage();
             })
             .catch((err) => {});
@@ -43,7 +45,7 @@ export default class Carousel {
     }
 
     manageCarousel(options) {
-        return $("#myCarousel").carousel(options);
+        this.carouselElem.carousel(options);
     }
 
     createSlides(multimediaContent) {
@@ -52,50 +54,41 @@ export default class Carousel {
                 slide = "";
             switch (multimediaContent[i].type) {
                 case "image":
-                    slide = '<div class="' + className + '">  <img src="' + multimediaContent[i].link + '" alt=""> </div>';
+                    slide = '<div class="' + className + '">  <img src="' + multimediaContent[i].link + '" alt=""> <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div></div>';
                     break;
                 case "audio":
-                    slide = '<div class="' + className + '"> <audio controls> <source  src="' + multimediaContent[i].link + '"  type="audio/mpeg">  </audio>  </div>';
+                    slide = '<div class="' + className + '"> <audio controls> <source  src="' + multimediaContent[i].link + '"  type="audio/mpeg">  </audio>  <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div> </div>';
                     break;
                 case "video":
-                    slide = '<div class="' + className + '"> <video controls preload="metadata"> <source src="' + multimediaContent[i].link + '" type="video/mp4"> </video> </div>';
+                    slide = '<div class="' + className + '"> <video controls preload="metadata"> <source src="' + multimediaContent[i].link + '" type="video/mp4"> </video> <div class="carousel-caption"><p class="caption-text">' + multimediaContent[i].caption + '</p></div> </div>';
                     break;
             }
-            $("#myCarousel").find(".carousel-inner").append(slide);
+            this.carouselElem.find(".carousel-inner").append(slide);
         }
-        this.showCaption(0);
-    }
-
-    showCaption(slideNumber) {
-        $(".slide-caption").text(this.data.slides[slideNumber].caption);
-    }
-
-    getSlideNumber() {
-        let slideNum = this.manageCarousel("slickCurrentSlide");
-        return slideNum;
     }
 
     bindEvents() {
         let self = this;
-        $("#myCarousel").find(".controls.left").on("click", (e) => {
-            self.stopMediaPlaying();
-            self.manageCarousel("slickPrev");
-            self.showCaption(self.getSlideNumber());
+        this.carouselElem.find(".left").on("click", (e) => {
+            self.manageCarousel("prev");
         });
 
-        $("#myCarousel").find(".controls.right").on("click", (e) => {
-            self.stopMediaPlaying();
-            self.manageCarousel("slickNext");
-            self.showCaption(self.getSlideNumber());
+        this.carouselElem.find(".right").on("click", (e) => {
+            self.manageCarousel("next");
         });
 
-        // $(window).resize(function() {
-        //     self.resizeImage();
-        // });
-    }
+        this.carouselElem.on('slide.bs.carousel', function() {
+            self.normalizeHeights(self.carouselElem.find(".item"));
+            self.stopMediaPlaying();
+        });
 
-    resizeImage() {
-        $(".slick-active img").height($(".carousel").height());
+        $(window).on('resize orientationchange', () => {
+            self.normalizeHeights(self.carouselElem.find(".item"));
+        });
+
+        $(window).on('load', () => {
+            self.normalizeHeights(self.carouselElem.find(".item"));
+        });
     }
 
     showInstruction(val) {
@@ -103,13 +96,34 @@ export default class Carousel {
     }
 
     stopMediaPlaying() {
-        if ($(".slick-active audio").length > 0) {
-            $(".slick-active audio")[0].currentTime = 0;
-            $(".slick-active audio")[0].pause();
+        if ($(".item-active audio").length > 0) {
+            $(".item-active audio")[0].currentTime = 0;
+            $(".item-active audio")[0].pause();
         }
-        if ($(".slick-active video").length > 0) {
-            $(".slick-active video")[0].currentTime = 0;
-            $(".slick-active video")[0].pause();
+        if ($(".item-active video").length > 0) {
+            $(".item-active video")[0].currentTime = 0;
+            $(".item-active video")[0].pause();
         }
+    }
+
+    // Normalize Carousel Heights - pass in Bootstrap Carousel items.
+    normalizeHeights(slides) {
+        let items = slides, //grab all slides
+            heights = [], //create empty array to store height values
+            tallest = 0; //create variable to make note of the tallest slide
+
+        items.each(() => {
+            items.css('min-height', '0'); //reset min-height
+        });
+
+        items.each(() => { //add heights to array
+            heights.push(items.height());
+        });
+
+        tallest = Math.max.apply(null, heights); //cache largest value
+
+        items.each(() => {
+            items.css('min-height', tallest + 'px');
+        });
     }
 }
