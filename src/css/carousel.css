@@ -1,58 +1,64 @@
 /* Makes images fully responsive */
 
-.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
-    display: block;
-    width: 100%;
-    height: auto;
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 
 /*Make videos responsive*/
 
 .carousel-inner>.item>video {
-    width: 100%
+  width: 100%;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
 }
 
 .carousel-inner>.item>audio {
-    position: absolute;
-    width: 60%;
-    top: 50%;
-    left: 50%;
-    margin-left: -30%;
+  position: absolute;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  margin-left: -30%;
 }
 
 
 /* ------------------- Carousel Styling ------------------- */
 
 .carousel-inner {
-    position: relative;
-    border-radius: 15px;
-    border: 1px solid #7f7f7f;
-    min-height: 200px;
+  position: relative;
+  /*border-radius: 15px 15px 0 0;*/
+  /*border: 1px solid #7f7f7f;*/
+  min-height: 200px;
+  max-height: 40em;
 }
 
 .carousel-inner>.item {
-    min-height: 200px;
-    background-color: #fff;
+  position: relative;
+  min-height: 200px;
+  background-color: #fff;
 }
 
 .carousel-controls {
-    background-color: rgba(0, 0, 0, .5);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-    /*padding: 0 0 10px 25px;*/
-    /*padding: 0 0 5px 0px;*/
-    color: #fff;
-    text-align: center;
-    height: auto;
-    border-radius: 0 0 15px 15px;
+  position: relative;
+  /*background-color: rgba(0, 0, 0, .5);*/
+  /*position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;*/
+  z-index: 10;
+  padding: 10px 0px 10px 0px;
+  color: #000;
+  text-align: center;
+  height: auto;
+  /*border: 1px solid #7f7f7f;*/
+  /*border-radius: 0 0 15px 15px;*/
 }
 
 .caption {
-    /*background-color: rgba(0, 0, 0, .5);
+  /*background-color: rgba(0, 0, 0, .5);
     position: relative;
     width: 80%;
     left: 0;
@@ -63,111 +69,129 @@
     color: #fff;
     text-align: center;
     bottom: 0;*/
-    position: relative;
-    color: #fff;
-    text-align: center;
-    bottom: 0;
+  position: relative;
+  text-align: center;
+  bottom: 0;
 }
 
 .caption .caption-text {
-    display: inline-block;
-    word-wrap: break-word;
-    width: 70%;
+  display: inline-block;
+  word-wrap: break-word;
+  width: 70%;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
 }
 
 .carousel-indicators {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    z-index: 15;
-    margin: 0;
-    padding: 0 25px 25px 0;
-    text-align: right;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  margin: 0;
+  padding: 10px 25px 10px 0;
+  text-align: center;
+}
+
+.carousel-indicators .active {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  background-color: #4e4e4e;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #000\9;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1.5px solid #4e4e4e;
+  border-radius: 10px;
 }
 
 .controls {
-    position: absolute;
-    width: 15%;
-    font-size: 20px;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-    background-color: rgba(0, 0, 0, 0);
-    filter: alpha(opacity=50);
-    opacity: .5;
-    z-index: 1;
+  position: absolute;
+  width: 10%;
+  font-size: 20px;
+  color: #000;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0);
+  filter: alpha(opacity=50);
+  opacity: .5;
+  z-index: 1;
 }
 
 .controls.left, .controls.right {
-    background-image: none;
-    cursor: pointer;
-    bottom: 10px;
-    border: 0;
+  background-image: none;
+  color: #000;
+  cursor: pointer;
+  bottom: 25px;
+  border: 0;
 }
 
 .controls.left {
-    left: 15px;
+  left: 0px;
 }
 
 .controls.right {
-    right: 15px;
+  right: 0px;
 }
 
 .carousel-loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-animation: spin 4s linear infinite;
-    -moz-animation: spin 4s linear infinite;
-    animation: spin 4s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 @-moz-keyframes spin {
-    100% {
-        -moz-transform: rotate(360deg);
-    }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
 }
 
 @-webkit-keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 
 /* ------------------- Section Styling - Not needed for carousel styling ------------------- */
 
 .section-white {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 .section-white {
-    background-color: #fff;
-    color: #555;
+  background-color: #fff;
+  color: #555;
 }
 
 @media screen and (min-width: 768px) {
-    .section-white {
-        padding: 0.5em 0;
-    }
+  .section-white {
+    padding: 0.5em 0;
+  }
 }
 
 @media screen and (min-width: 992px) {
-    .container {
-        max-width: 930px;
-    }
-}
-
-
-}
-
+  .container {
+    max-width: 930px;
+  }
 }

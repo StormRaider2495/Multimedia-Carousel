@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Multimedia Carousel Using ES6</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,36 +9,40 @@
     <script src="node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="src/css/carousel.css">
-</head>
+  </head>
 
-<body>
+  <body>
 
     <section class="section-white">
-        <div class="container">
-            <div id="myCarousel" class="carousel slide">
-                <header>
-                    <h4 id="instructionTxt"></h4>
-                </header>
-                <div class="carousel-inner" role="listbox">
-                    <span class="carousel-loader"><img src="load-icon.png" width="25" height="25"></span>
-                </div>
-                <div class="carousel-controls">
-                    <button class="controls left" aria-label="Previous Slide">
-                      <span class="glyphicon glyphicon-chevron-left"></span>
-                    </button>
-                    <div class="caption">
-                        <p class="caption-text" aria-live="polite" aria-atomic="true">Caption Text</p>
-                    </div>
-                    <button class="controls right" aria-label="Next Slide">
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                  </button>
-                </div>
+      <div class="container">
+        <div id="myCarousel" class="carousel slide">
+          <header>
+            <h4 id="instructionTxt"></h4>
+          </header>
+          <div class="carousel-inner" role="listbox">
+            <span class="carousel-loader"><img src="load-icon.png" width="25" height="25"></span>
+          </div>
+          <div class="container">
+            <ol class="carousel-indicators">
+            </ol>
+          </div>
+          <div class="carousel-controls">
+            <button class="controls left" aria-label="Previous Slide">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+            <div class="caption">
+              <p class="caption-text" aria-live="polite" aria-atomic="true">Caption Text</p>
             </div>
+            <button class="controls right" aria-label="Next Slide">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <script src="build/multimedia-carousel.bundle.js"></script>
 
-</body>
+  </body>
 
 </html>
