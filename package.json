@@ -1,7 +1,7 @@
 {
-  "name": "es6-tutorial-master",
+  "name": "multimedia-carousel-es6",
   "version": "1.0.0",
-  "description": "Start the tutorial [here](http://ccoenraets.github.io/es6-tutorial).",
+  "description": "Multimedia Carousel using ES6",
   "main": "index.js",
   "scripts": {
     "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
