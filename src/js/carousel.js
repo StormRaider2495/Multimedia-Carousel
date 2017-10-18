@@ -76,7 +76,8 @@ export default class Carousel {
 			target = '#' + this.carouselElem.attr("id");
 		for (let i in this.data.slides) {
 			let className = (i > 0) ? "" : "active";
-			indicators += '<li data-target="' + target + '" data-slide-to="' + i + '" class="' + className + '"></li>';
+			let label = "Go to slide " + (parseInt(i)+1);
+			indicators += '<li tabindex="0" aria-label="' + label + '" data-target="' + target + '" data-slide-to="' + i + '" class="' + className + '"></li>';
 		}
 		this.carouselElem.find(".carousel-indicators").append(indicators);
 	}
@@ -84,10 +85,12 @@ export default class Carousel {
 	bindCarouselEvents() {
 		let self = this;
 		this.carouselElem.find(".left").off('click').on("click", () => {
+			self.addAccessibility();
 			self.manageCarousel("prev");
 		});
 
 		this.carouselElem.find(".right").off('click').on("click", () => {
+			self.addAccessibility();
 			self.manageCarousel("next");
 		});
 
@@ -105,6 +108,13 @@ export default class Carousel {
 
 		this.carouselElem.find(".item").children().on('load', () => {
 			self.normalizeCarouselSlideHeights(self.carouselElem.find(".item"));
+		});
+
+		this.carouselElem.find(".carousel-indicators li").off("keydown").on("keydown",function(e){
+			if(e.which === 13 || e.which === 32){
+				let target = parseInt($(e.target).attr("data-slide-to"));
+				self.manageCarousel(target);
+			}
 		});
 	}
 
@@ -150,5 +160,11 @@ export default class Carousel {
 		items.each(() => {
 			items.css('min-height', tallest + 'px');
 		});
+	}
+
+	addAccessibility() {
+		if (!this.carouselElem.find(".caption-text").attr("aria-live")) {
+			this.carouselElem.find(".caption-text").attr({ "aria-live": "polite", "aria-atomic": true });
+		}
 	}
 }
