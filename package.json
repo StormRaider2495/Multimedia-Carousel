@@ -6,7 +6,7 @@
   "scripts": {
     "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
     "start": "http-server",
-    "webpack": "webpack"
+    "webpack": "webpack"    
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1",
-    "slick-carousel": "^1.8.1"
+    "jquery": "^3.2.1"
   }
 }

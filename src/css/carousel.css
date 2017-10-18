@@ -1,6 +1,6 @@
 /* Makes images fully responsive */
 
-.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
     display: block;
     width: 100%;
     height: auto;
@@ -12,16 +12,18 @@
 .carousel-inner>.item>video {
     width: 100%;
     position: absolute;
-    top: 45%;
+    left: 0;
+    top: 50%;
     transform: translateY(-50%);
 }
 
 .carousel-inner>.item>audio {
-    position: absolute;
+    /*position: absolute;
     width: 60%;
     top: 50%;
     left: 50%;
-    margin-left: -30%;
+    margin-left: -30%;*/
+    margin-top: 30%;
 }
 
 
@@ -29,49 +31,29 @@
 
 .carousel-inner {
     position: relative;
-    /*border-radius: 15px 15px 0 0;*/
-    /*border: 1px solid #7f7f7f;*/
     min-height: 200px;
-    /*max-height: 38em;*/
-    max-height: 32em;
     width: 75%;
     margin: 0 auto;
 }
 
 .carousel-inner>.item {
-    position: relative;
     min-height: 200px;
     background-color: #fff;
+    text-align: center;
 }
 
 .carousel-controls {
     position: relative;
-    /*background-color: rgba(0, 0, 0, .5);*/
-    /*position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;*/
     z-index: 10;
-    padding: 10px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
     color: #000;
     text-align: center;
     height: auto;
-    /*border: 1px solid #7f7f7f;*/
-    /*border-radius: 0 0 15px 15px;*/
+    width: 75%;
+    margin: 0 auto;
 }
 
 .caption {
-    /*background-color: rgba(0, 0, 0, .5);
-    position: relative;
-    width: 80%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-    padding: 0 0 10px 25px;
-    color: #fff;
-    text-align: center;
-    bottom: 0;*/
     position: relative;
     text-align: center;
     bottom: 0;
@@ -90,43 +72,41 @@
     bottom: 0;
     right: 0;
     left: 0;
-    width: 100%;
     z-index: 15;
     margin: 0;
     padding: 10px 25px 10px 0;
     text-align: center;
+    margin: 0 auto;
 }
 
 .carousel-indicators .active {
-    width: 18px;
-    height: 18px;
-    margin: 0;
+    width: 12px;
+    height: 12px;
+    margin: 1px;
     background-color: #4e4e4e;
 }
 
 .carousel-indicators li {
     display: inline-block;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     margin: 2px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: #000\9;
     background-color: rgba(0, 0, 0, 0);
-    border: 1.5px solid #4e4e4e;
+    border: 1px solid #4e4e4e;
     border-radius: 10px;
 }
 
 .controls {
     position: absolute;
-    width: 10%;
     font-size: 20px;
     color: #000;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    /*text-shadow: 0 1px 2px rgba(0, 0, 0, .6);*/
     background-color: rgba(0, 0, 0, 0);
     filter: alpha(opacity=50);
-    opacity: .5;
+    opacity: .8;
     z-index: 1;
 }
 
@@ -134,7 +114,7 @@
     background-image: none;
     color: #000;
     cursor: pointer;
-    bottom: 25px;
+    top: 5px;
     border: 0;
 }
 
@@ -153,6 +133,21 @@
     -webkit-animation: spin 4s linear infinite;
     -moz-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite;
+}
+
+.toggle-fullscreen {
+    background-color: #E0E0E0;
+    border: 0;
+    padding: 10px;
+    border-radius: 22px;
+    opacity: 0.9;
+}
+
+#section-carousel .instructions {
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 3em;
+    margin-top: 10px;
+    padding-bottom: 5px;
 }
 
 @-moz-keyframes spin {
@@ -177,18 +172,18 @@
 
 /* ------------------- Section Styling - Not needed for carousel styling ------------------- */
 
-.section-white {
+.section-carousel {
     padding: 10px 0;
 }
 
-.section-white {
+.section-carousel {
     background-color: #fff;
     color: #555;
 }
 
 @media screen and (min-width: 768px) {
-    .section-white {
-        padding: 0.5em 0;
+    .section-carousel {
+        padding: 1.5em 0;
     }
 }
 

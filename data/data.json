@@ -1,33 +1,33 @@
 {
-    "instruction": "Multimedia Carousel Player Instruction text",
+    "instruction": "Instructions : This portion will have instructions for every interactive.",
     "repeat": true,
     "slides": [{
             "id": "03a",
             "type": "image",
             "link": "data/image01.jpg",
-            "caption": "First Slide. Carousel is always so much fun! Las campañas electorales son comunes:  Pedro Pablo Kusczynski haciendo campaña electoral en Perú 2011."
+            "caption": "Las campañas electorales son comunes:  Pedro Pablo Kusczynski haciendo campaña electoral en Perú 2011"
         },
         {
             "id": "03b",
             "type": "image",
             "link": "data/image02.jpg",
-            "caption": "Second Image Slide. Thank you, for listening! Las tomas de posesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012"
-        }, {
+            "caption": "Las tomas de poesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012."
+        },{
             "id": "03c",
             "type": "image",
             "link": "data/image03.jpg",
-            "caption": "Third Image Slide. Thank you, for listening! Las tomas de posesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012"
-        }, {
+            "caption": "Los congresos operan rutinariamente.  Senado de la República, Uruguay, 2017."
+        },{
             "id": "03c",
             "type": "audio",
             "link": "data/audio01.mp3",
-            "caption": "Audio Slide. Thank you, for listening! Las tomas de posesión son comunes:  Enrique Peña Nieto toma posesión como presidente de México, diciembre del 2012"
+            "caption": "Es la diapositiva de audio. Gracias por escuchar"
         },
         {
             "id": "03c",
             "type": "video",
             "link": "data/video01.mp4",
-            "caption": "Third Slide. Its the video slide! Los congresos operan rutinariamente.  Senado de la República, Uruguay, 2017."
+            "caption": "Es la diapositiva de video. Gracias por ver"
         }
     ]
 }
